@@ -1,4 +1,4 @@
-/** Remote cover art: Unsplash & Pexels (free-use); URLs are stable photo IDs with crop params. */
+/** Cover art lives in `/public` and is referenced as root-relative paths (e.g. `/event-id.jpg`). */
 export type CommunityEvent = {
   id: string;
   slug: string;
@@ -10,23 +10,10 @@ export type CommunityEvent = {
   coverImage: string;
   coverAlt: string;
   categoryLabel: string;
-  heat: "live" | "soon" | "open";
+  status: "open to join" | "very soon" | string ;
 };
 
 export const COMMUNITY_EVENTS: CommunityEvent[] = [
-  {
-    id: "evt-rc",
-    slug: "rc-car-racing",
-    title: "RC Car Racing",
-    tagline: "Electric 1:10 rigs, timed laps, clean overtakes.",
-    description:
-      "Indoor carpet track with A–Main qualifying. Bring your own brushless setup or borrow a club car where we have spares. Marshalling, transponder timing, and brackets posted same day.",
-    coverImage:
-      "https://images.unsplash.com/photo-1598532163507-1920ad1d9d4f?auto=format&fit=crop&w=1200&q=80",
-    coverAlt: "RC cars racing on a tight indoor track",
-    categoryLabel: "Motorsport",
-    heat: "live",
-  },
   {
     id: "evt-robots-football",
     slug: "robots-football",
@@ -34,37 +21,35 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
     tagline: "Two goals, rolling wheels, strategy on the field.",
     description:
       "Small-league robot soccer: autonomous or radio-controlled bots chase a light ball across a short pitch. Teams of three register together; we publish rules PDFs and safety checks before match day.",
-    coverImage:
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/build-robot-playing-football-match.webp",
     coverAlt: "A small robot on a table ready to compete",
     categoryLabel: "Robotics",
-    heat: "open",
+    status: "open to join",
   },
   {
-    id: "evt-line-follower",
-    slug: "line-follower-robot-race",
-    title: "Line Follower Robot Race",
-    tagline: "Sensors, PID tuning, and perfect line tracking.",
+    id: "evt-rc",
+    slug: "rc-car-racing",
+    title: "RC Car Racing",
+    tagline: "Electric 1:10 rigs, timed laps, clean overtakes.",
     description:
-      "Follow a black line on a white mat as fast as stability allows. One bot per entrant, multiple attempts, best lap counts. Great for schools and solo makers—bring your Arduino, STM32, or Pi build.",
-    coverImage:
-      "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    coverAlt: "Hands working on a circuit board with tools",
-    categoryLabel: "Robotics",
-    heat: "soon",
+      "Indoor carpet track with Main qualifying. Bring your own brushless setup or borrow a club car where we have spares. Marshalling, transponder timing, and brackets posted same day.",
+    coverImage: "/build-rc-car-race.webp",
+    coverAlt: "RC cars racing on a tight indoor track",
+    categoryLabel: "RC Racing",
+    status: "very soon",
   },
+
   {
     id: "evt-drone",
     slug: "drone-race-competition",
     title: "Drone Race Competition",
     tagline: "Whoop and 5\" classes through LED gates.",
     description:
-      "FPV drone racing with tech inspection and designated video channels. Practice slots in the morning, heats in the afternoon. If you are new, we run a chill ‘track walk’ before batteries go on.",
-    coverImage:
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80",
+      "FPV drone racing with tech inspection and designated video channels. Practice slots in the morning, statuss in the afternoon. If you are new, we run a chill ‘track walk’ before batteries go on.",
+    coverImage: "/drone-race.webp",
     coverAlt: "Drone flying against a clear sky",
-    categoryLabel: "Air sports",
-    heat: "live",
+    categoryLabel: "RC Racing",
+    status: "from apr 15",
   },
   {
     id: "evt-sperm-racing",
@@ -73,11 +58,22 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
     tagline: "Microscopy sprint — science, not jokes.",
     description:
       "A biology-lab–style observation event: teams prepare slides and compare motility under shared microscope feeds. It is timed, educational, and run by student mentors; consent and lab safety briefings are mandatory.",
-    coverImage:
-      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/sperm-racing.webp",
     coverAlt: "Laboratory microscope on a bench",
     categoryLabel: "Science lab",
-    heat: "open",
+    status: "closed",
+  },
+  {
+    id: "evt-line-follower",
+    slug: "line-follower-robot-race",
+    title: "Line Follower Robot Race",
+    tagline: "Sensors, PID tuning, and perfect line tracking.",
+    description:
+      "Follow a black line on a white mat as fast as stability allows. One bot per entrant, multiple attempts, best lap counts. Great for schools and solo makers—bring your Arduino, STM32, or Pi build.",
+    coverImage: "/line-follower-robot-race.webp",
+    coverAlt: "Hands working on a circuit board with tools",
+    categoryLabel: "RC Racing",
+    status: "very soon",
   },
   {
     id: "evt-beatbox",
@@ -86,11 +82,34 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
     tagline: "Vocal drums, bass, and crowd energy.",
     description:
       "Solo and crew rounds with a simple judging rubric (musicality, originality, stage presence). No gear required—just a mic and a timer. Wildcard slots open if we have time at the end of the night.",
-    coverImage:
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "/beatboxing-compeition.webp",
+    coverAlt: "Microphone on a dark stage with purple lighting",
+    categoryLabel: "Music",
+    status: "open",
+  },
+  {
+    id: "RC-racing-ship",
+    slug: "beat-boxing-competition",
+    title: "Build Ship and Race",
+    tagline: "Build a ship and race it across the water.",
+    description:
+      "Build a ship and race it across the water. The ship can be made of anything, as long as it is water-proof and can float. The ship can be powered by anything, as long as it is safe and legal. The ship can be as simple or as complex as you want.",
+    coverImage: "/build-rc-ship-racing.webp",
+    coverAlt: "A ship being built and raced across the water",
+    categoryLabel: "RC Racing",
+    status: "open",
+  },
+  {
+    id: "3d-creators",
+    slug: "beat-boxing-competition",
+    title: "3D Creators! Create hyperealistic 3D 5 minutes scene",
+    tagline: "Create hyperealistic 3D 5 minutes scene",
+    description:
+      "Solo and crew rounds with a simple judging rubric (musicality, originality, stage presence). No gear required—just a mic and a timer. Wildcard slots open if we have time at the end of the night.",
+    coverImage: "/create-3d-hyperrealistic-scene-competition.webp",
     coverAlt: "Microphone on a dark stage with purple lighting",
     categoryLabel: "Performance",
-    heat: "open",
+    status: "open",
   },
 ];
 

@@ -21,7 +21,7 @@ export default function LoginPage() {
             New here?{" "}
             <Link
               href="/register"
-              className="font-semibold text-cyan-300 hover:text-cyan-200"
+              className="font-semibold text-indigo-300 hover:text-purple-200"
             >
               Register
             </Link>

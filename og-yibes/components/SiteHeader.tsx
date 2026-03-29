@@ -86,7 +86,7 @@ export function SiteHeader() {
               </Link>
               <Link
                 href="/register"
-                className="rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 px-4 py-2 text-xs font-bold text-white shadow-[0_0_24px_rgba(99,102,241,0.35)] transition hover:brightness-110 sm:text-sm"
+                className="rounded-full bg-gradient-to-r from-blue-800 to-violet-500 px-4 py-2 text-xs font-bold text-white transition hover:brightness-110 sm:text-sm"
               >
                 Register
               </Link>

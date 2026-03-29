@@ -26,29 +26,26 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="border-b border-white/10 py-12 sm:py-16">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <h2 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-zinc-50 sm:text-3xl">
-          FAQs
+    <section className="bg-mauve-100 pb-10">
+      <div className="mx-auto grid max-w-6xl px-4 sm:px-6">
+        <h2 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-zinc-700 sm:text-3xl">
+          FAQs: Frequent Query Answers
         </h2>
-        <p className="mt-2 text-sm text-zinc-400 sm:text-base">
-          Straight answers — tap a row to expand.
-        </p>
         <div className="mt-8 space-y-3">
           {ITEMS.map((item, idx) => {
             const isOpen = open === idx;
             return (
               <div
                 key={item.q}
-                className="overflow-hidden rounded-2xl border border-indigo-500/15 bg-indigo-950/20"
+                className="overflow-hidden rounded-2xl border border-mauve-400 bg-mauve-500/25"
               >
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-sm font-semibold text-zinc-100 sm:text-base"
+                  className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-sm font-semibold text-stone-600 sm:text-base"
                 >
                   {item.q}
-                  <span className="text-indigo-300">{isOpen ? "−" : "+"}</span>
+                  <span className="text-stone-600">{isOpen ? "−" : "+"}</span>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -58,7 +55,7 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.22 }}
                     >
-                      <p className="px-4 pb-4 text-sm leading-relaxed text-zinc-400">
+                      <p className="px-4 pb-4 text-sm leading-relaxed text-stone-600">
                         {item.a}
                       </p>
                     </motion.div>

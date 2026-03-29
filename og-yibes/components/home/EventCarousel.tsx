@@ -6,30 +6,31 @@ import { motion } from "framer-motion";
 import { COMMUNITY_EVENTS, type CommunityEvent } from "@/lib/constants/events";
 
 const cardShell =
-  "border border-purple-500/35 shadow-[0_0_40px_rgba(99,102,241,0.14)]";
+  "border border-purple-500/35";
 
 const chipClass =
-  "rounded-full border border-indigo-400/35 bg-indigo-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-indigo-200";
+  "rounded-full border border-indigo-400/35 bg-indigo-500/15 px-2 text-[10px] font-semibold uppercase tracking-wider text-indigo-200";
 
-function Heat({ heat }: { heat: CommunityEvent["heat"] }) {
-  if (heat === "live") {
+function Heat({ status }: { status: CommunityEvent["status"] }) {
+  if (status === "open to join") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full border border-indigo-400/45 bg-indigo-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-100">
-        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-purple-400" />
-        Live
+        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
+        Open to join
       </span>
     );
   }
-  if (heat === "soon") {
+  if (status === "very soon") {
     return (
       <span className="rounded-full border border-purple-400/40 bg-purple-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-purple-100">
-        Soon
+        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-yellow-500" />
+        Very soon
       </span>
     );
   }
   return (
     <span className="rounded-full border border-indigo-400/35 bg-purple-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-100">
-      Open
+      {status}
     </span>
   );
 }
@@ -37,14 +38,14 @@ function Heat({ heat }: { heat: CommunityEvent["heat"] }) {
 export function EventCarousel() {
   console.log("[EventCarousel] render");
   return (
-    <section id="events" className="scroll-mt-24 border-b border-white/10 py-12 sm:py-16">
+    <section id="events" className="scroll-mt-24 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-8 max-w-2xl">
           <h2 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-zinc-50 sm:text-3xl">
-            Event grid — slide &amp; tap in
+            Browse All Events
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Each card is a real program we run or pilot with hosts and safety
+            Real program we run or pilot with hosts and safety
             briefings: motorsport, robots, drones, lab science, and stage rounds.
             Swipe sideways on your phone — one thumb, zero clutter.
           </p>
@@ -78,14 +79,11 @@ export function EventCarousel() {
               <div className="flex flex-1 flex-col p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-zinc-500">
-                      Match card
-                    </p>
                     <h3 className="mt-2 font-[family-name:var(--font-orbitron)] text-lg font-bold leading-snug text-zinc-50 sm:text-xl">
                       {evt.title}
                     </h3>
                   </div>
-                  <Heat heat={evt.heat} />
+                  <Heat status={evt.status} />
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                   {evt.tagline}
@@ -99,7 +97,7 @@ export function EventCarousel() {
                     href={`/events/register?event=${encodeURIComponent(evt.id)}`}
                     className="ml-auto text-sm font-bold text-indigo-300 hover:text-purple-200"
                   >
-                    Register →
+                    Read More →
                   </Link>
                 </div>
               </div>

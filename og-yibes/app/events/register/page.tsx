@@ -31,15 +31,16 @@ export default function EventRegisterPage() {
             <EventRegisterIntro />
           </div>
           <p className="mt-2 text-sm text-zinc-400">
-            Pick a match card, add your squad label, and lock in your spot.
+            Choose a program, add an optional team name, and send your RSVP — we
+            keep one entry per person per event.
           </p>
           <p className="mt-3 text-xs text-zinc-500">
             Need an account first?{" "}
-            <Link href="/register" className="text-cyan-300 hover:text-cyan-200">
+            <Link href="/register" className="text-indigo-300 hover:text-purple-200">
               Register
             </Link>{" "}
             or{" "}
-            <Link href="/login" className="text-cyan-300 hover:text-cyan-200">
+            <Link href="/login" className="text-indigo-300 hover:text-purple-200">
               log in
             </Link>
             .

@@ -19,7 +19,7 @@ export default function RegisterPage() {
           </h1>
           <p className="mt-2 text-sm text-zinc-400">
             Already rolling?{" "}
-            <Link href="/login" className="font-semibold text-cyan-300 hover:text-cyan-200">
+            <Link href="/login" className="font-semibold text-indigo-300 hover:text-purple-200">
               Log in
             </Link>
           </p>

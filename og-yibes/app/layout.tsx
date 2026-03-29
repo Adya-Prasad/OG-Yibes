@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     template: "%s | OG Yibes",
   },
   description:
-    "Hang out, club, and compete. Register for RC racing, robot football, drone races, beat boxing, and more — built for youth, speed, and pure energy.",
+    "Browse youth-led competitions — RC racing, robot games, FPV drones, lab nights, and stage battles. One account, purple–indigo UI, fast registration.",
   openGraph: {
     title: "OG Yibes",
     description:
-      "Futuristic community hub for youth events, competitions, and late-night energy.",
+      "Community board for in-person tech and culture events — register online, check in on site.",
     type: "website",
   },
 };
